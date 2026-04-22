@@ -3,10 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Civic Mandate — Lewisham Democratic Reclamation</title>
+<title>The Civic Mandate — Lewisham Democratic Reclamation 2026</title>
+
+<meta name="description" content="An independent scrutiny report and manifesto regarding institutional capture, housing failures, and vested interests within Lewisham Council (2026).">
+<meta property="og:title" content="The Civic Mandate — Lewisham Democratic Reclamation">
+<meta property="og:description" content="Read the Lewisham Dossier: Systematic Capture, Corporate Real Estate, and the 6% Yield.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
-
 <style>
   :root {
     --crimson: #8B0000;
@@ -16,15 +23,13 @@
     --cream: #EDE8DC;
     --mid: #6B6355;
     --rule: #2C2C2C;
-    --accent-gold: #B8962E;
+    --gold: #B8962E;
+    --gold-light: #D4A832;
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
-    background-color: var(--ink);
+    background: var(--ink);
     color: var(--newsprint);
     font-family: 'Source Serif 4', Georgia, serif;
     font-size: 17px;
@@ -32,811 +37,638 @@
     overflow-x: hidden;
   }
 
-  /* ── MASTHEAD ─────────────────────────────────────────── */
+  /* ── MASTHEAD ── */
   .masthead {
     background: var(--newsprint);
     color: var(--ink);
     text-align: center;
-    padding: 3rem 2rem 2rem;
+    padding: 3.5rem 2rem 2.5rem;
     border-bottom: 6px double var(--crimson);
-    position: relative;
   }
-
   .masthead-kicker {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--crimson);
-    margin-bottom: 1rem;
+    font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--crimson); margin-bottom: 1.2rem;
   }
-
   .masthead h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(3.2rem, 9vw, 7rem);
-    font-weight: 900;
-    line-height: 0.95;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    text-transform: uppercase;
+    font-size: clamp(3.2rem, 9vw, 7rem); font-weight: 900; line-height: 0.93;
+    letter-spacing: -0.025em; color: var(--ink); text-transform: uppercase;
+    animation: fadeUp 0.7s ease both;
   }
-
-  .masthead h1 span {
-    color: var(--crimson);
-    font-style: italic;
-  }
-
+  .masthead h1 span { color: var(--crimson); font-style: italic; }
   .masthead-sub {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(0.95rem, 2vw, 1.25rem);
-    font-style: italic;
-    color: var(--mid);
-    margin-top: 0.75rem;
-    letter-spacing: 0.04em;
+    font-size: clamp(0.9rem, 2vw, 1.15rem); font-style: italic;
+    color: var(--mid); margin-top: 0.9rem; letter-spacing: 0.04em;
+    animation: fadeUp 0.7s 0.15s ease both;
   }
-
   .masthead-meta {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 1.5rem;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--mid);
-    border-top: 1px solid var(--rule);
-    padding-top: 1rem;
-    flex-wrap: wrap;
+    display: flex; justify-content: center; gap: 1.6rem; margin-top: 1.5rem;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid);
+    border-top: 1px solid #ccc; padding-top: 1.1rem; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
   }
+  .masthead-meta strong { color: var(--crimson); }
 
-  .masthead-meta span { opacity: 0.7; }
-  .masthead-meta strong { color: var(--crimson); font-weight: 600; }
-
-  /* ── NAVIGATION ───────────────────────────────────────── */
+  /* ── NAV ── */
   nav {
-    background: var(--crimson);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0;
+    background: var(--crimson); position: sticky; top: 0; z-index: 100;
+    display: flex; justify-content: center; flex-wrap: wrap;
   }
-
   nav a {
-    color: var(--newsprint);
-    text-decoration: none;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.85rem 1.4rem;
-    border-right: 1px solid rgba(255,255,255,0.2);
-    transition: background 0.2s;
+    color: var(--newsprint); text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.64rem;
+    letter-spacing: 0.13em; text-transform: uppercase;
+    padding: 0.75rem 1.1rem;
+    border-right: 1px solid rgba(255,255,255,0.18); transition: background 0.2s;
   }
-
   nav a:hover { background: rgba(0,0,0,0.3); }
   nav a:last-child { border-right: none; }
 
-  /* ── LAYOUT WRAPPER ───────────────────────────────────── */
-  .page-wrapper {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
+  /* ── WRAPPER ── */
+  .page-wrapper { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
 
-  /* ── SECTION HEADERS ──────────────────────────────────── */
+  /* ── SECTION BANNERS ── */
   .section-banner {
-    background: var(--newsprint);
-    color: var(--ink);
-    padding: 4rem 2rem 3rem;
-    margin: 0 -1.5rem;
-    position: relative;
-    overflow: hidden;
+    background: var(--newsprint); color: var(--ink);
+    padding: 4rem 2rem 3rem; margin: 0 -1.5rem;
+    position: relative; overflow: hidden;
   }
-
   .section-banner::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 6px;
-    background: var(--crimson);
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 6px; background: var(--crimson);
   }
-
   .section-banner .section-number {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    color: var(--crimson);
-    text-transform: uppercase;
-    margin-left: 2rem;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.67rem;
+    letter-spacing: 0.3em; color: var(--crimson); text-transform: uppercase; margin-left: 2rem;
   }
-
   .section-banner h2 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 900;
-    line-height: 1.05;
+    font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; line-height: 1.05;
     margin: 0.5rem 0 0.5rem 2rem;
-    color: var(--ink);
   }
-
   .section-banner .deck {
-    font-size: 1.05rem;
-    color: var(--mid);
-    font-style: italic;
-    margin-left: 2rem;
-    max-width: 680px;
+    font-size: 1rem; color: var(--mid); font-style: italic; margin-left: 2rem; max-width: 680px;
   }
 
-  /* ── INTRO SPREAD ─────────────────────────────────────── */
-  .intro-spread {
-    background: var(--ink);
-    padding: 4rem 0;
-    border-bottom: 2px solid #222;
-  }
-
+  /* ── INTRO ── */
+  .intro-spread { background: var(--ink); padding: 4rem 0; border-bottom: 2px solid #1A1A1A; }
   .intro-lede {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    font-weight: 400;
-    line-height: 1.45;
-    color: var(--newsprint);
-    max-width: 820px;
-    border-left: 4px solid var(--crimson);
-    padding-left: 2rem;
-    margin-bottom: 2.5rem;
+    font-size: clamp(1.25rem, 2.6vw, 1.8rem); font-weight: 400; line-height: 1.5;
+    color: var(--newsprint); max-width: 820px;
+    border-left: 4px solid var(--crimson); padding-left: 2rem; margin-bottom: 2.5rem;
   }
-
-  .intro-body {
-    font-size: 1rem;
-    color: #BDB8AE;
-    max-width: 820px;
-    columns: 2;
-    column-gap: 3rem;
-  }
-
-  .intro-body p { margin-bottom: 1.2em; break-inside: avoid; }
-
-  /* ── DOSSIER SECTION ──────────────────────────────────── */
-  .dossier-body {
-    background: var(--ink);
-    padding: 3rem 0;
-  }
-
-  .dossier-chapter {
-    border-bottom: 1px solid #222;
-    padding: 3rem 0;
-  }
-
-  .chapter-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
-    font-weight: 700;
-    color: var(--newsprint);
-    margin-bottom: 1.5rem;
-    position: relative;
-    padding-left: 1.5rem;
-  }
-
-  .chapter-title::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.15em;
-    bottom: 0.1em;
-    width: 4px;
-    background: var(--crimson-bright);
-  }
-
-  .chapter-text {
-    font-size: 1rem;
-    color: #C0BAB0;
-    max-width: 760px;
-    line-height: 1.8;
-    margin-bottom: 2rem;
-  }
-
-  .chapter-text p { margin-bottom: 1.2em; }
-
-  /* ── RECEIPT CARDS ────────────────────────────────────── */
-  .receipt-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
-  }
-
-  .receipt-card {
-    background: #111111;
-    border: 1px solid #2A2A2A;
-    border-left: 4px solid var(--crimson);
-    padding: 2rem;
-    position: relative;
-    transition: border-color 0.25s, transform 0.25s;
-  }
-
-  .receipt-card:hover {
-    border-left-color: var(--accent-gold);
-    transform: translateX(4px);
-  }
-
-  .receipt-tag {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--crimson-bright);
-    margin-bottom: 0.5rem;
-  }
-
-  .receipt-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--newsprint);
-    margin-bottom: 1rem;
-  }
-
-  .receipt-subject {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.8rem;
-    color: var(--accent-gold);
-    margin-bottom: 1rem;
-  }
-
-  .receipt-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--crimson-bright);
-    margin-bottom: 0.25rem;
-    display: block;
-  }
-
-  .receipt-card p {
-    font-size: 0.92rem;
-    color: #A8A29A;
-    line-height: 1.7;
-    margin-bottom: 1rem;
-  }
-
-  .receipt-card p:last-child { margin-bottom: 0; }
-
-  /* ── STAT CALLOUTS ────────────────────────────────────── */
-  .stat-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin: 2.5rem 0;
-  }
-
+  .stat-row { display: flex; flex-wrap: wrap; gap: 1rem; margin: 2.5rem 0; }
   .stat-box {
-    flex: 1;
-    min-width: 160px;
-    background: var(--crimson);
-    color: var(--newsprint);
-    padding: 1.5rem;
-    text-align: center;
+    flex: 1; min-width: 135px; background: var(--crimson);
+    color: var(--newsprint); padding: 1.3rem; text-align: center;
   }
-
   .stat-box .num {
     font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    font-weight: 900;
-    line-height: 1;
-    display: block;
+    font-size: 2.5rem; font-weight: 900; line-height: 1; display: block;
+  }
+  .stat-box .lbl {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem;
+    letter-spacing: 0.13em; text-transform: uppercase; opacity: 0.85;
+    margin-top: 0.35rem; display: block;
+  }
+  .intro-body { font-size: 0.98rem; color: #BDB8AE; max-width: 820px; columns: 2; column-gap: 3rem; }
+  .intro-body p { margin-bottom: 1.1em; break-inside: avoid; }
+
+  /* ── DOSSIER BODY ── */
+  .dossier-body { background: var(--ink); padding: 3rem 0; }
+  .dossier-chapter { border-bottom: 1px solid #1E1E1E; padding: 3rem 0; }
+  .dossier-chapter:last-child { border-bottom: none; }
+  .chapter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 2.6vw, 2rem); font-weight: 700; color: var(--newsprint);
+    margin-bottom: 1.3rem; padding-left: 1.3rem; position: relative;
+  }
+  .chapter-title::before {
+    content: ''; position: absolute; left: 0; top: 0.15em; bottom: 0.1em;
+    width: 4px; background: var(--crimson-bright);
+  }
+  .chapter-text { font-size: 0.97rem; color: #C0BAB0; max-width: 760px; line-height: 1.8; margin-bottom: 1.6rem; }
+  .chapter-text p { margin-bottom: 1.1em; }
+
+  /* ── RECEIPT CARDS ── */
+  .receipt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.3rem; margin: 1.5rem 0; }
+  .receipt-card {
+    background: #111; border: 1px solid #252525; border-left: 4px solid var(--crimson);
+    padding: 1.7rem; transition: border-color 0.25s, transform 0.25s;
+  }
+  .receipt-card:hover { border-left-color: var(--gold); transform: translateX(4px); }
+  .receipt-tag {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--crimson-bright); margin-bottom: 0.4rem;
+  }
+  .receipt-card h3 {
+    font-family: 'Playfair Display', serif; font-size: 1.18rem; font-weight: 700;
+    color: var(--newsprint); margin-bottom: 0.85rem;
+  }
+  .receipt-subject {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.73rem; color: var(--gold); margin-bottom: 0.85rem;
+  }
+  .lbl-tag {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--crimson-bright); margin-bottom: 0.2rem; display: block;
+  }
+  .receipt-card p { font-size: 0.89rem; color: #A8A29A; line-height: 1.7; margin-bottom: 0.85rem; }
+  .receipt-card p:last-child { margin-bottom: 0; }
+
+  /* ── OUTLIER LIST ── */
+  .outlier-list {
+    list-style: none; margin: 1.5rem 0;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1rem;
+  }
+  .outlier-list li {
+    background: #0F0F0F; border: 1px solid #1E1E1E; border-left: 3px solid var(--gold);
+    padding: 1.2rem 1.3rem; font-size: 0.88rem; color: #A8A29A; line-height: 1.65;
+  }
+  .outlier-list li strong {
+    color: var(--gold); font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem;
+    display: block; margin-bottom: 0.3rem; letter-spacing: 0.05em;
   }
 
-  .stat-box .label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    opacity: 0.85;
-    margin-top: 0.4rem;
-    display: block;
+  /* ── FOI TARGETS ── */
+  .foi-list { list-style: none; margin: 1.5rem 0; display: grid; gap: 1rem; }
+  .foi-item {
+    background: #0A0A0A; border: 1px solid #252525; border-left: 4px solid var(--gold);
+    padding: 1.5rem; display: grid; grid-template-columns: 64px 1fr; gap: 1.2rem; align-items: start;
   }
-
-  /* ── PULL QUOTE ───────────────────────────────────────── */
-  .pull-quote {
-    border-top: 3px solid var(--crimson);
-    border-bottom: 3px solid var(--crimson);
-    padding: 2rem 0;
-    margin: 3rem 0;
+  .foi-num {
+    font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 900;
+    color: var(--gold); opacity: 0.3; line-height: 1;
   }
+  .foi-item h4 {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem;
+  }
+  .foi-item p { font-size: 0.88rem; color: #A8A29A; line-height: 1.65; }
 
+  /* ── TAG CLOUD (Millwall) ── */
+  .tag-label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: block;
+  }
+  .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 1.5rem; }
+  .tag {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.09em;
+    text-transform: uppercase; background: #1A1A1A; border: 1px solid #333; color: #A8A29A;
+    padding: 0.38rem 0.85rem; transition: background 0.2s, color 0.2s;
+  }
+  .tag:hover { background: var(--crimson); color: var(--newsprint); }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote { border-top: 3px solid var(--crimson); border-bottom: 3px solid var(--crimson); padding: 2rem 0; margin: 3rem 0; }
   .pull-quote p {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    font-style: italic;
-    color: var(--newsprint);
-    line-height: 1.4;
+    font-size: clamp(1.25rem, 2.6vw, 1.8rem); font-style: italic;
+    color: var(--newsprint); line-height: 1.4;
   }
 
-  /* ── MANIFESTO SECTION ────────────────────────────────── */
-  .manifesto-body {
-    background: var(--newsprint);
-    color: var(--ink);
-    padding: 3rem 0;
-  }
-
+  /* ── MANIFESTO ── */
+  .manifesto-body { background: var(--newsprint); color: var(--ink); padding: 3rem 0; }
   .manifesto-preamble {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.05rem, 2vw, 1.3rem);
-    font-style: italic;
-    color: #3A3A3A;
-    border-left: 4px solid var(--crimson);
-    padding: 1.5rem 2rem;
-    background: var(--cream);
-    margin-bottom: 3rem;
-    line-height: 1.7;
+    font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.22rem);
+    font-style: italic; color: #3A3A3A; border-left: 4px solid var(--crimson);
+    padding: 1.5rem 2rem; background: var(--cream); margin-bottom: 3rem; line-height: 1.75;
   }
-
-  .principle {
-    border-bottom: 1px solid #D0CAC0;
-    padding: 2.5rem 0;
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 2rem;
-    align-start: start;
-  }
-
+  .principle { border-bottom: 1px solid #D0CAC0; padding: 2.5rem 0; display: grid; grid-template-columns: 80px 1fr; gap: 2rem; }
   .principle:last-of-type { border-bottom: none; }
-
   .principle-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    font-weight: 900;
-    color: var(--crimson);
-    line-height: 1;
-    opacity: 0.25;
-    text-align: right;
+    font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 900;
+    color: var(--crimson); opacity: 0.22; line-height: 1; text-align: right;
   }
-
   .principle-content h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--ink);
-    margin-bottom: 0.75rem;
+    font-family: 'Playfair Display', serif; font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+    font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--ink); margin-bottom: 0.7rem;
   }
+  .principle-content p { font-size: 0.96rem; color: #3C3830; line-height: 1.8; }
 
-  .principle-content p {
-    font-size: 0.98rem;
-    color: #3C3830;
-    line-height: 1.8;
-  }
-
-  /* ── THE PLEDGE ───────────────────────────────────────── */
+  /* ── PLEDGE ── */
   .pledge-section {
-    background: var(--crimson);
-    color: var(--newsprint);
-    padding: 4rem 2rem;
-    margin: 0 -1.5rem;
-    text-align: center;
+    background: var(--crimson); color: var(--newsprint);
+    padding: 4rem 2rem; margin: 0 -1.5rem; text-align: center;
   }
-
   .pledge-section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 900;
-    margin-bottom: 2rem;
-    letter-spacing: -0.02em;
+    font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900; margin-bottom: 2rem;
   }
+  .pledge-section p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 1.5rem; line-height: 1.75; opacity: 0.92; }
 
-  .pledge-section p {
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin: 0 auto 1.5rem;
-    line-height: 1.75;
-    opacity: 0.92;
-  }
-
-  /* ── PDF DOWNLOAD BUTTON ──────────────────────────────── */
-  .download-bar {
-    background: #0D0D0D;
-    border-top: 4px solid var(--accent-gold);
-    padding: 3rem 1.5rem;
-    text-align: center;
-  }
-
-  .download-bar p {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.8rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--mid);
-    margin-bottom: 1.5rem;
-  }
-
+  /* ── DOWNLOAD ── */
+  .download-bar { background: #080808; border-top: 4px solid var(--gold); padding: 3rem 1.5rem; text-align: center; }
+  .download-bar p { font-family: 'IBM Plex Mono', monospace; font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); margin-bottom: 1.5rem; }
   .btn-pdf {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: var(--accent-gold);
-    color: var(--ink);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    padding: 1rem 2.5rem;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    background: var(--gold); color: var(--ink); font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 1rem 2.5rem; border: none; cursor: pointer; transition: background 0.2s, transform 0.1s;
+  }
+  .btn-pdf:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-pdf svg { width: 17px; height: 17px; }
+
+  /* ── DISCLAIMER ── */
+  .disclaimer {
+    background: #0A0A0A; border-top: 1px solid #1A1A1A; padding: 2rem; text-align: center;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.63rem; letter-spacing: 0.06em;
+    color: #404040; line-height: 1.9;
   }
 
-  .btn-pdf:hover { background: #D4A832; transform: translateY(-2px); }
-  .btn-pdf:active { transform: translateY(0); }
-
-  .btn-pdf svg { width: 18px; height: 18px; }
-
-  /* ── CONCLUSION ───────────────────────────────────────── */
-  .conclusion-section {
-    background: #080808;
-    border-top: 2px solid #1A1A1A;
-    padding: 4rem 0;
-  }
-
-  .conclusion-section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 900;
-    color: var(--newsprint);
-    margin-bottom: 1.5rem;
-  }
-
-  .conclusion-section p {
-    font-size: 1rem;
-    color: #A8A29A;
-    max-width: 760px;
-    line-height: 1.8;
-    margin-bottom: 1.2em;
-  }
-
-  .two-col {
-    columns: 2;
-    column-gap: 3rem;
-    break-inside: avoid;
-  }
-
-  /* ── FOOTER ───────────────────────────────────────────── */
   footer {
-    background: #050505;
-    border-top: 1px solid #1A1A1A;
-    padding: 2rem;
-    text-align: center;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    color: #444;
-    text-transform: uppercase;
+    background: #050505; border-top: 1px solid #111; padding: 1.6rem 2rem; text-align: center;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em;
+    color: #303030; text-transform: uppercase;
   }
 
-  /* ── ANIMATIONS ───────────────────────────────────────── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  /* ── ANIMATION ── */
+  @keyframes fadeUp { from { opacity:0; transform:translateY(26px); } to { opacity:1; transform:translateY(0); } }
 
-  .masthead h1 { animation: fadeUp 0.7s ease both; }
-  .masthead-sub { animation: fadeUp 0.7s 0.15s ease both; }
-  .masthead-meta { animation: fadeUp 0.7s 0.3s ease both; }
-
-  /* ── PRINT / PDF STYLES ───────────────────────────────── */
+  /* ── PRINT ── */
   @media print {
     nav, .download-bar { display: none !important; }
-    body { background: white; color: black; font-size: 11pt; }
-    .masthead { background: white; color: black; }
-    .section-banner { background: white; color: black; }
-    .receipt-card { background: #f5f5f5; border-left: 3px solid #8B0000; }
-    .receipt-card p, .chapter-text, .intro-body { color: #333; }
-    .manifesto-body { background: white; }
-    .pledge-section { background: #8B0000; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .stat-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .page-break { page-break-before: always; }
-    .intro-body, .two-col { columns: 1; }
+    body { background: white; color: black; font-size: 10.5pt; }
+    .masthead, .section-banner { background: white !important; color: black !important; }
+    .dossier-body, .intro-spread { background: white !important; }
+    .chapter-text, .intro-body, .receipt-card p, .outlier-list li, .foi-item p { color: #222 !important; }
+    .chapter-title, .pull-quote p { color: black !important; }
+    .receipt-card { background: #f5f5f5 !important; border-left: 3px solid #8B0000 !important; }
+    .outlier-list li { background: #f9f9f9 !important; }
+    .foi-item { background: #f9f9f9 !important; }
+    .stat-box, .pledge-section { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .manifesto-body { background: white !important; }
+    .intro-body { columns: 1; }
     a { color: inherit; text-decoration: none; }
   }
 
-  /* ── RESPONSIVE ───────────────────────────────────────── */
+  /* ── RESPONSIVE ── */
   @media (max-width: 700px) {
-    .receipt-grid { grid-template-columns: 1fr; }
+    .receipt-grid, .outlier-list { grid-template-columns: 1fr; }
     .principle { grid-template-columns: 1fr; }
     .principle-num { font-size: 2.5rem; text-align: left; }
     .intro-body { columns: 1; }
-    .two-col { columns: 1; }
+    .foi-item { grid-template-columns: 1fr; }
   }
 </style>
 </head>
-
 <body>
 
-<!-- ═══════════════════════════════════════════
-     MASTHEAD
-═══════════════════════════════════════════ -->
 <header class="masthead">
-  <div class="masthead-kicker">Independent Democratic Scrutiny · Lewisham · 2026</div>
+  <div class="masthead-kicker">Independent Democratic Scrutiny · Lewisham · Ultimate Master Document · 2026</div>
   <h1>The <span>Civic</span><br>Mandate</h1>
-  <div class="masthead-sub">A Manifesto for Democratic Reclamation &amp; An Independent Scrutiny Report on Institutional Capture</div>
+  <div class="masthead-sub">A Manifesto for Democratic Reclamation &amp; The Lewisham Dossier — Systematic Capture &amp; Individual Outliers</div>
   <div class="masthead-meta">
     <span><strong>Year:</strong> 2026</span>
     <span><strong>Borough:</strong> Lewisham, London</span>
-    <span><strong>Status:</strong> Independent Publication</span>
-    <span><strong>Receipts:</strong> 7 Documented Conflicts</span>
+    <span><strong>Edition:</strong> Ultimate Master Document</span>
+    <span><strong>Chapters:</strong> IX Dossier + V Manifesto</span>
+    <span><strong>FOI Targets:</strong> 4 Actionable</span>
   </div>
 </header>
 
-<!-- ═══════════════════════════════════════════
-     NAVIGATION
-═══════════════════════════════════════════ -->
 <nav>
-  <a href="#dossier">The Dossier</a>
-  <a href="#audit">Audit Conflict</a>
+  <a href="#dossier">Dossier</a>
+  <a href="#audit">Audit</a>
   <a href="#party-state">Party-State</a>
   <a href="#private-equity">Private Equity</a>
-  <a href="#dissent">Dissent</a>
-  <a href="#manifesto">The Manifesto</a>
-  <a href="#pledge">The Pledge</a>
+  <a href="#grants">Grants</a>
+  <a href="#mayor">Mayor</a>
+  <a href="#pensions">Pensions</a>
+  <a href="#outliers">Outliers</a>
+  <a href="#millwall">Millwall</a>
+  <a href="#foi">FOI</a>
+  <a href="#manifesto">Manifesto</a>
+  <a href="#pledge">Pledge</a>
 </nav>
 
-<!-- ═══════════════════════════════════════════
-     INTRODUCTION
-═══════════════════════════════════════════ -->
 <div class="intro-spread">
   <div class="page-wrapper">
-    <p class="intro-lede">"Lewisham Council is not operating in the public interest. It functions as a facilitator for private equity, a payroll extension for trade unions and political parties, and an access-point for financial lobbyists."</p>
+    <p class="intro-lede">"Lewisham Council is operating under a state of systematic institutional capture — a sanitised infrastructure where the boundaries between public duty, private equity, trade union payrolls, and national party machinery have dissolved."</p>
 
     <div class="stat-row">
-      <div class="stat-box">
-        <span class="num">92%</span>
-        <span class="label">Maladministration Rate — Housing Ombudsman 2024</span>
-      </div>
-      <div class="stat-box">
-        <span class="num">6%</span>
-        <span class="label">Social Rent in the Landsec 1,700-Home Redevelopment</span>
-      </div>
-      <div class="stat-box">
-        <span class="num">£635k</span>
-        <span class="label">Cost of 2024 By-Election on 21% Turnout</span>
-      </div>
-      <div class="stat-box">
-        <span class="num">£30M</span>
-        <span class="label">Cuts to Youth &amp; Social Care in 2026</span>
-      </div>
-      <div class="stat-box">
-        <span class="num">52/54</span>
-        <span class="label">Council Seats Historically Held by One Party</span>
-      </div>
+      <div class="stat-box"><span class="num">92%</span><span class="lbl">Maladministration Rate — Housing Ombudsman 2024</span></div>
+      <div class="stat-box"><span class="num">6%</span><span class="lbl">Social Rent in the 1,700-Home Landsec Redevelopment</span></div>
+      <div class="stat-box"><span class="num">£635k</span><span class="lbl">Cost of 2024 By-Election on 21% Turnout</span></div>
+      <div class="stat-box"><span class="num">£30M</span><span class="lbl">2026 Budget Cuts to Services</span></div>
+      <div class="stat-box"><span class="num">52/54</span><span class="lbl">Seats Historically Held by One Party</span></div>
+      <div class="stat-box"><span class="num">4.99%</span><span class="lbl">Council Tax Hike Imposed on Residents in 2026</span></div>
     </div>
 
     <div class="intro-body">
-      <p>Local government is predicated on the assumption of neutrality. Constituents grant authority to elected officials with the expectation that public assets, housing standards, and financial budgets will be managed solely in the public interest.</p>
-      <p>However, a forensic review of the Lewisham Council Register of Interests, cross-referenced with public regulatory findings and corporate development yields, paints a fundamentally different picture.</p>
-      <p>Lewisham Council is currently operating under a state of systematic institutional capture. This is not a matter of illegal cash exchanges in dark rooms; it is a highly sanitised, normalised infrastructure where the boundaries between public duty, private equity, trade union payrolls, and national party machinery have completely dissolved.</p>
-      <p>The following report details the specific individuals, the structural conflicts, and the receipts of this administrative failure — and a manifesto to reclaim what has been lost.</p>
+      <p>A comprehensive digital audit of the Lewisham Council Register of Interests has been conducted in the interest of local transparency. By cross-referencing self-reported declarations against committee portfolios, executive roles, public regulatory findings, and corporate development yields, this report identifies critical areas where private interests and public duties overlap.</p>
+      <p>This is not a matter of illegal cash exchanges. It is a highly sanitised infrastructure where the boundaries between public duty, private equity, trade union payrolls, and national party machinery have completely dissolved.</p>
+      <p>The following report details specific individuals, structural conflicts, nine documented chapters of evidence, four actionable FOI targets — and a manifesto for reclaiming what has been lost.</p>
+      <p><em>Note: Inclusion in this report does not imply illegal wrongdoing. It highlights areas where declared interests intersect with public responsibilities. All data is drawn from self-reported public registers and regulatory findings.</em></p>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════
-     SECTION I: THE LEWISHAM DOSSIER BANNER
-═══════════════════════════════════════════ -->
 <div id="dossier" class="page-wrapper">
   <div class="section-banner">
     <div class="section-number">Part I — The Evidence</div>
     <h2>The Lewisham<br>Dossier</h2>
-    <p class="deck">An Independent Scrutiny Report on Vested Interests, Systematic Capture, and Administrative Failure</p>
+    <p class="deck">Ultimate Master Document: Systematic Capture &amp; Individual Outliers (2026)</p>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════
-     CHAPTER I: AUDIT CONFLICT
-═══════════════════════════════════════════ -->
-<div id="audit" class="dossier-body">
+<div class="dossier-body">
   <div class="page-wrapper">
-    <div class="dossier-chapter">
+
+    <div id="audit" class="dossier-chapter">
       <h2 class="chapter-title">I. Marking Their Own Homework: The Audit Conflict</h2>
       <div class="chapter-text">
-        <p>The Audit and Risk Committee is the final line of defence against financial mismanagement. Its purpose is to scrutinise the Council's internal controls, evaluate risk, and ensure taxpayer money is not being misappropriated or mismanaged. Absolute financial independence of its members is mandatory for public trust.</p>
-        <p>In October 2024, the Housing Ombudsman published a devastating investigation into Lewisham Council, citing a 92% maladministration rate and highlighting "severe maladministration" regarding damp, leaks, and pest infestations. For the Council to permit a landlord on its own payroll to chair its Audit Committee demonstrates a total abandonment of administrative rigour.</p>
+        <p>The Audit and Risk Committee is the final line of defence against financial mismanagement. Absolute financial independence of its members is mandatory for public trust. In October 2024, the Housing Ombudsman cited a 92% maladministration rate within the Council's housing department, covering severe damp, leaks, and pest infestations. Both the Chair and Vice-Chair of this committee hold direct ties to the housing and social policy sector.</p>
       </div>
-
       <div class="receipt-grid">
         <div class="receipt-card">
-          <div class="receipt-tag">Receipt #1</div>
-          <h3>The Chair of Audit &amp; Risk</h3>
-          <div class="receipt-subject">Subject: Councillor Eva Kestner</div>
-          <span class="receipt-label">The Conflict</span>
-          <p>Cllr Kestner is the Chair of the Audit and Risk Committee. Her declaration of interests reveals that she receives monthly rent payments directly from Lewisham Council via a Private Sector Leasing (PSL) Scheme.</p>
-          <span class="receipt-label">The Reality</span>
-          <p>The individual legally appointed to audit the financial risks and management of the Council is concurrently acting as a private contractor receiving direct financial yields from the Council's housing department. She is financially dependent on the very authority she is tasked with regulating.</p>
+          <div class="receipt-tag">Receipt — Chair of Audit &amp; Risk</div>
+          <h3>Councillor Eva Kestner</h3>
+          <div class="receipt-subject">Chair, Audit and Risk Committee</div>
+          <span class="lbl-tag">The Conflict</span>
+          <p>Cllr Kestner chairs the Audit and Risk Committee while declaring that she receives monthly rent payments directly from Lewisham Council via a Private Sector Leasing (PSL) Scheme.</p>
+          <span class="lbl-tag">The Reality</span>
+          <p>The individual auditing the Council's financial risks is concurrently a private contractor receiving direct financial yields from the Council's housing department — the same department rated at 92% maladministration. She is financially dependent on the very authority she is tasked with regulating.</p>
+        </div>
+        <div class="receipt-card">
+          <div class="receipt-tag">Supporting Conflict — Vice-Chair</div>
+          <h3>Councillor Billy Harding</h3>
+          <div class="receipt-subject">Vice-Chair, Audit and Risk Committee</div>
+          <span class="lbl-tag">The Conflict</span>
+          <p>Harding sits as Vice-Chair of the Audit and Risk Committee while working as a housing caseworker. His spouse is employed by the Joseph Rowntree Foundation — an organisation central to social housing policy advocacy.</p>
+          <span class="lbl-tag">The Reality</span>
+          <p>Both the Chair and Vice-Chair of the body tasked with independent financial oversight hold direct professional and household ties to the housing and social policy sector they are supposed to scrutinise objectively.</p>
         </div>
       </div>
-
       <div class="pull-quote">
-        <p>"The person appointed to audit the Council's finances is simultaneously on the Council's payroll as a private landlord. This is not a grey area — it is a structural failure."</p>
+        <p>"Both the Chair and Vice-Chair of Lewisham's Audit Committee are professionally tied to the housing sector they are supposed to independently scrutinise. This is not a grey area — it is structural failure."</p>
       </div>
     </div>
 
-    <!-- ─── CHAPTER II: PARTY-STATE ─── -->
     <div id="party-state" class="dossier-chapter">
       <h2 class="chapter-title">II. The "Party-State" and Labour Relations</h2>
       <div class="chapter-text">
-        <p>In a functioning local democracy, the Council acts as the employer, negotiating with trade unions who represent the employees. When the individuals sitting on the executive board of the Council are simultaneously employed by those same unions or the central political party, the neutrality required to manage public funds evaporates.</p>
+        <p>When individuals on the Council's executive board are simultaneously employed by trade unions or the central political party, the neutrality required to manage public funds evaporates completely.</p>
       </div>
-
       <div class="receipt-grid">
         <div class="receipt-card">
-          <div class="receipt-tag">Receipt #2</div>
-          <h3>The Union-Employer Paradox</h3>
-          <div class="receipt-subject">Subject: Councillor Paul Bell</div>
-          <span class="receipt-label">The Conflict</span>
-          <p>Cllr Bell serves as the Cabinet Member for Health, Wellbeing and Adult Social Care, overseeing multi-million-pound public service budgets. He is concurrently a paid National Officer for UNISON, the primary trade union representing the Council's workforce.</p>
-          <span class="receipt-label">The Reality</span>
-          <p>An executive who controls public budgets and sits on the employer's side of the table (the Works Council) is simultaneously drawing a salary from the employee's union. He is also a director of the Aizlewood Group, an entity explicitly created to fuse trade unions with public sector operations. The boundary between public administration and union lobbying has been erased.</p>
+          <div class="receipt-tag">Receipt — The Union-Employer Paradox</div>
+          <h3>Councillor Paul Bell</h3>
+          <div class="receipt-subject">Cabinet Member, Health, Wellbeing &amp; Adult Social Care</div>
+          <span class="lbl-tag">The Conflict</span>
+          <p>Cllr Bell oversees multi-million-pound public service budgets while concurrently serving as a paid National Officer for UNISON — the primary trade union representing the Council's own workforce. He is also a Director of the Aizlewood Group, an entity created to fuse trade unions with public sector operations.</p>
+          <span class="lbl-tag">The Reality</span>
+          <p>An executive controlling public budgets who sits on the employer's side of the Works Council is simultaneously salaried by the employees' union. The boundary between public administration and union lobbying has been entirely erased.</p>
         </div>
-
         <div class="receipt-card">
-          <div class="receipt-tag">Receipt #3</div>
-          <h3>The Party Payroll</h3>
-          <div class="receipt-subject">Subject: Councillor James-J Walsh</div>
-          <span class="receipt-label">The Conflict</span>
-          <p>Cllr Walsh serves as the Cabinet Member for Inclusive Regeneration and Planning. His declaration reveals he is privately employed and salaried by the central Labour Party.</p>
-          <span class="receipt-label">The Reality</span>
-          <p>The executive directing the future of the borough's multi-billion-pound regeneration strategy is not a politically independent local champion, but a paid employee of the national Labour machine.</p>
+          <div class="receipt-tag">Receipt — The Party Payroll</div>
+          <h3>Councillor James-J Walsh</h3>
+          <div class="receipt-subject">Cabinet Member, Inclusive Regeneration &amp; Planning</div>
+          <span class="lbl-tag">The Conflict</span>
+          <p>Walsh directs the borough's multi-billion-pound regeneration strategy while privately employed and salaried by the central Labour Party. He has additionally accepted stakeholder hospitality from Bouygues UK — a primary construction contractor whose planning applications his committee oversees.</p>
+          <span class="lbl-tag">The Reality</span>
+          <p>The executive directing the future of Lewisham's built environment is a paid employee of the national Labour machine who accepts hospitality from the developers he is meant to regulate independently.</p>
         </div>
       </div>
     </div>
 
-    <!-- ─── CHAPTER III: PRIVATE EQUITY ─── -->
     <div id="private-equity" class="dossier-chapter">
-      <h2 class="chapter-title">III. Private Equity, Town Centre Capture, and the 6% Yield</h2>
+      <h2 class="chapter-title">III. Private Equity, Town Centre Capture, and the Housing Interlock</h2>
       <div class="chapter-text">
-        <p>The Council has adopted a strategy of "regeneration via private equity," handing over prime public space to corporate developers. The justification provided to the public is that these mega-developments will yield affordable housing. The mathematics prove this to be a catastrophic failure for the community.</p>
+        <p>The Council has adopted a "regeneration via private equity" strategy, handing prime public space to corporate developers. The governance of housing and urban regeneration is simultaneously influenced by individuals with private vocational ties to the sector — while delivering near-zero social housing yield.</p>
       </div>
-
       <div class="receipt-grid">
         <div class="receipt-card">
-          <div class="receipt-tag">Receipt #4</div>
-          <h3>The Landsec Redevelopment</h3>
-          <div class="receipt-subject">Event: October 2025 Planning Resolution — 17-Acre Lewisham Shopping Centre</div>
-          <span class="receipt-label">The Conflict</span>
-          <p>The Council approved a masterplan delivering over 1,700 new homes. However, only 20% of these are designated as "affordable," and an abysmal 6% are designated for genuine social rent.</p>
-          <span class="receipt-label">The Reality</span>
-          <p>The Council is facilitating the mass accumulation of wealth for private developers (Bouygues UK, Landsec) while delivering almost zero relief to the 10,000+ families on the housing waiting list. This corporate facilitation is spearheaded by a Cabinet where figures like James-J Walsh accept stakeholder hospitality from major developers like Bouygues UK.</p>
-          <p>Housing policy is also heavily influenced by Cabinet Member Oana Olaru-Holmes, who is employed as Head of CEO Office at Clarion Housing — the largest housing association in the UK — deeply entrenching corporate housing models into the Council's DNA.</p>
+          <div class="receipt-tag">Receipt — The Landsec Redevelopment &amp; The 6% Yield</div>
+          <h3>October 2025 Planning Resolution</h3>
+          <div class="receipt-subject">17-Acre Lewisham Shopping Centre Redevelopment</div>
+          <span class="lbl-tag">The Conflict</span>
+          <p>The Council approved a masterplan for 1,700 new homes. Only 20% are designated as "affordable" and a mere 6% designated for genuine social rent — while the Council simultaneously imposed £30M in budget cuts and a 4.99% Council Tax hike on residents.</p>
+          <span class="lbl-tag">The Reality</span>
+          <p>The Council is facilitating wealth accumulation for Bouygues UK and Landsec while delivering near-zero relief to the 10,000+ families on the housing waiting list. This is directed by a Cabinet Member on the Labour Party payroll who accepts hospitality from the primary contractor.</p>
+        </div>
+        <div class="receipt-card">
+          <div class="receipt-tag">Supporting Conflicts — The Housing &amp; Planning Interlock</div>
+          <h3>Four Interconnected Roles</h3>
+          <div class="receipt-subject">Vocational Ties Embedded in Housing Governance</div>
+          <span class="lbl-tag">Oana Olaru-Holmes</span>
+          <p>Cabinet Member concurrently serving as Head of CEO Office at Clarion Housing — the UK's largest housing association. Corporate housing models are entrenched into the Council's executive DNA.</p>
+          <span class="lbl-tag">Stephen Penfold</span>
+          <p>Chair of the Housing Select Committee, working simultaneously as a self-employed housing expert for Citizens Advice. Scrutinises housing policy while commercially advising on it.</p>
+          <span class="lbl-tag">Peter Bernards</span>
+          <p>Chair of Planning Committee A, and Director of two private security firms: Diplomats Security Contract Ltd and Ashton Kingsley Ltd. A direct FOI target for security tender overlaps with the Council.</p>
         </div>
       </div>
     </div>
 
-    <!-- ─── CHAPTER IV: MAYOR & HOSPITALITY ─── -->
-    <div class="dossier-chapter">
-      <h2 class="chapter-title">IV. The Establishment Mayor and the Culture of Hospitality</h2>
+    <div id="grants" class="dossier-chapter">
+      <h2 class="chapter-title">IV. The Grant and Funding Networks</h2>
       <div class="chapter-text">
-        <p>Lewisham operates under a Directly Elected Mayor model, which centralises immense power. Rather than using this power to advocate independently for Lewisham, the office has been used to consolidate establishment influence.</p>
+        <p>Several members are integrated into the borough's third-sector funding pipeline through family connections or personal directorships — creating a web where those who vote on budgets have undeclared household or commercial connections to the organisations receiving those funds.</p>
       </div>
-
-      <div class="receipt-grid">
-        <div class="receipt-card">
-          <div class="receipt-tag">Receipt #5</div>
-          <h3>The Lords Over Lewisham</h3>
-          <div class="receipt-subject">Subject: Mayor Brenda Dacres</div>
-          <span class="receipt-label">The Conflict</span>
-          <p>Dacres holds the dual roles of Mayor of Lewisham and Baroness Dacres in the House of Lords. She is a member of the Fabian Society and multiple national unions. Her office frequently accepts hospitality from major stakeholders, prominently Millwall FC.</p>
-          <span class="receipt-label">The Reality</span>
-          <p>While Lewisham residents faced a maximum 4.99% Council Tax hike and £30 million in cuts to youth and social care in 2026, their Mayor was operating as a national legislator. The 2024 by-election that installed her cost taxpayers £635,000 on a dismal 21% turnout — a £600k coronation rather than a robust democratic mandate.</p>
-        </div>
-
-        <div class="receipt-card">
-          <div class="receipt-tag">Receipt #6</div>
-          <h3>Pensions and Access Capitalism</h3>
-          <div class="receipt-subject">Subjects: Cllrs John Muldoon &amp; Mark Ingleby (Pensions Investment Committee)</div>
-          <span class="receipt-label">The Conflict</span>
-          <p>The register reveals a normalised culture of accepting high-value hospitality from the financial services industry. Muldoon has declared over £5,000 in gifts since 2012, including a £595 iPad and multiple four-figure investment conference tickets. Deputy Mayor Louise Krupski accepted a £3,000 ticket to the FT Investment Management Summit.</p>
-          <span class="receipt-label">The Reality</span>
-          <p>While legally declared, this is pure access capitalism. Financial firms woo the councillors who manage the borough's massive pension funds. Muldoon concurrently works as an Account Director for Thorncliffe Communications — a firm specialising in political lobbying for developers.</p>
-        </div>
-      </div>
+      <ul class="outlier-list">
+        <li>
+          <strong>The Paschoud Network</strong>
+          Councillors Jacq and John Paschoud — a married couple — declare a combined eight organisations receiving council funding. These include schools, care charities, and Catbytes CIC, a Community Interest Company. A single FOI request covering all five years of their combined grant funding is a priority target.
+        </li>
+        <li>
+          <strong>Liz Johnston-Franklin</strong>
+          Her son is Director of London Youth Events, an entity directly funded by the council for holiday programmes, school clubs, and social services for looked-after children. A direct household pipeline from a sitting councillor to council grant funding.
+        </li>
+        <li>
+          <strong>James Rathbone</strong>
+          Linked to four separate local organisations — including Lee Green Lives and the Lee Green Consortium — which receive council grant funding. A multi-node nexus embedded across the community funding ecosystem.
+        </li>
+      </ul>
     </div>
 
-    <!-- ─── CHAPTER V: DISSENT ─── -->
-    <div id="dissent" class="dossier-chapter">
-      <h2 class="chapter-title">V. The Crushing of Dissent</h2>
+    <div id="mayor" class="dossier-chapter">
+      <h2 class="chapter-title">V. The Establishment Mayor and the Crushing of Dissent</h2>
       <div class="chapter-text">
-        <p>A captured system protects itself through discipline. With 52 out of 54 seats historically held by Labour, the Council operates as a one-party state where internal scrutiny is suffocated.</p>
+        <p>Lewisham operates under a strong executive model. The 2024 by-election that installed the current Mayor cost taxpayers £635,000 on a 21% turnout — an administrative coronation, not a democratic mandate. With 52 out of 54 seats historically held by Labour, the Council functions as a one-party state where internal dissent is systemically suppressed.</p>
       </div>
-
       <div class="receipt-grid">
         <div class="receipt-card">
-          <div class="receipt-tag">Receipt #7</div>
-          <h3>The Arms Divestment Whip</h3>
-          <div class="receipt-subject">Subject: Cllr Liam Shrivastava (Defected to Green Party in 2025)</div>
-          <span class="receipt-label">The Event</span>
+          <div class="receipt-tag">Receipt — The Lords Over Lewisham</div>
+          <h3>Mayor Brenda Dacres</h3>
+          <div class="receipt-subject">Mayor of Lewisham &amp; Baroness Dacres, House of Lords</div>
+          <span class="lbl-tag">The Profile</span>
+          <p>Dacres holds the dual roles of Mayor and Baroness in the House of Lords. She is a member of the Fabian Society, a Director of DBD Computer Consultancy Ltd, and has accepted a £350 ticket from William Hill gambling alongside numerous Millwall FC hospitality packages.</p>
+          <span class="lbl-tag">The Reality</span>
+          <p>While residents faced a 4.99% Council Tax hike and £30M in service cuts, their Mayor was operating as a national legislator. Her directorship of DBD Computer Consultancy Ltd is a direct FOI target: all Council IT procurement must be audited for overlap with her commercial interests.</p>
+        </div>
+        <div class="receipt-card">
+          <div class="receipt-tag">Receipt — The Arms Divestment Whip</div>
+          <h3>Councillor Liam Shrivastava</h3>
+          <div class="receipt-subject">Defected to Green Party, 2025</div>
+          <span class="lbl-tag">The Event</span>
           <p>Shrivastava attempted to propose a motion to divest the Council's pension fund from the arms trade and companies linked to human rights abuses.</p>
-          <span class="receipt-label">The Reality</span>
-          <p>Instead of a democratic debate, Shrivastava was formally disciplined by the Labour Chief Whip. He cited a "climate of fear" where challenging the financial status quo — whether regarding arms investments, developer deals, or questionable relationships with organisations — was punished as "uncomradely." The Whip is used not for ethical standards, but to enforce the corporatised agenda of the central party.</p>
+          <span class="lbl-tag">The Reality</span>
+          <p>Instead of a democratic debate, he was formally disciplined by the Labour Chief Whip. He cited a "climate of fear" where challenging the financial status quo was punished as "uncomradely." The Whip is used not for ethical standards, but to enforce the corporatised agenda of the central party — resulting in a Green Party defection and a documented breakdown of internal democracy.</p>
         </div>
       </div>
     </div>
 
-    <!-- ─── DOSSIER CONCLUSION ─── -->
-    <div class="dossier-chapter conclusion-section" style="background:transparent; border-bottom:none;">
-      <h2 class="chapter-title" style="font-size:clamp(1.8rem,4vw,2.5rem);">Conclusion: The Two-Tier Borough</h2>
-      <div class="chapter-text two-col">
+    <div id="pensions" class="dossier-chapter">
+      <h2 class="chapter-title">VI. Pensions and Access Capitalism</h2>
+      <div class="chapter-text">
+        <p>The Pensions Investment Committee exhibits a normalised culture of accepting high-value hospitality from the financial services industry — the same industry competing to manage the borough's massive pension funds. While legally declared, this is pure access capitalism: financial firms cultivating relationships with the decision-makers who control billions in public pension assets.</p>
+      </div>
+      <ul class="outlier-list">
+        <li>
+          <strong>John Muldoon — Pensions Investment Committee</strong>
+          Declared over £5,000 in gifts and hospitality since 2012, including a £595 iPad and multiple conference tickets valued between £1,100–£1,400. Simultaneously works as an Account Director for Thorncliffe Communications — a firm specialising in political lobbying for developers. A priority FOI target for recusal records.
+        </li>
+        <li>
+          <strong>Mark Ingleby — Vice-Chair, Pensions Investment</strong>
+          Declares consistent hospitality for travel and accommodation from investment summits. A pattern of normalised access where financial industry firms maintain ongoing relationships with pension fund decision-makers.
+        </li>
+        <li>
+          <strong>Louise Krupski — Deputy Mayor</strong>
+          Declared the highest single gift outlier in the entire register: a £3,000 ticket to the FT Investment Management Summit. The Deputy Mayor of a borough cutting £30M from services accepted a £3,000 gift from the financial industry that manages its pension fund.
+        </li>
+      </ul>
+      <div class="pull-quote">
+        <p>"The Deputy Mayor accepted a £3,000 ticket from the financial services industry while the borough cut £30M from youth and social care services. This is access capitalism in plain sight."</p>
+      </div>
+    </div>
+
+    <div id="outliers" class="dossier-chapter">
+      <h2 class="chapter-title">VII. Notable Outliers and Individual Risks</h2>
+      <div class="chapter-text">
+        <p>Beyond systemic patterns, individual register entries reveal specific high-risk intersections between declared interests and public committee roles demanding independent scrutiny.</p>
+      </div>
+      <ul class="outlier-list">
+        <li>
+          <strong>Pauline Dall — Property Portfolio</strong>
+          Holds the largest property portfolio in the entire register: four land interests declared personally and two more held jointly with a spouse. A significant private property stake within a borough in a declared housing emergency.
+        </li>
+        <li>
+          <strong>Rachel Onikosi — Regulatory Overstretch</strong>
+          Holds five remunerated national regulatory roles simultaneously, including positions at the General Dental Council, the Nursing and Midwifery Council, and the Pensions Regulator. The volume of external commitments raises serious questions about available capacity to serve constituents.
+        </li>
+        <li>
+          <strong>Tauseef Anwar — Green Energy Directorship</strong>
+          Sits on the Sustainable Development Committee while acting as Director of Greenland Energy Services Ltd — a direct commercial intersection between committee decisions on sustainability policy and personal energy sector interests.
+        </li>
+      </ul>
+    </div>
+
+    <div id="millwall" class="dossier-chapter">
+      <h2 class="chapter-title">VIII. Recurring Stakeholder: Millwall FC</h2>
+      <div class="chapter-text">
+        <p>The most consistent external relationship identified across the entire register is with Millwall FC and the Millwall Community Trust. Hospitality from this single entity has been declared by the Mayor, the Deputy Mayor, multiple Cabinet Members, and ordinary councillors. The breadth of this relationship across the Council's full leadership represents an unusual — and undiscussed — concentration of influence from a single private sporting organisation.</p>
+      </div>
+      <span class="tag-label">Declared Recipients of Millwall FC Hospitality</span>
+      <div class="tag-cloud">
+        <div class="tag">Mayor Brenda Dacres</div>
+        <div class="tag">Deputy Mayor Louise Krupski</div>
+        <div class="tag">James-J Walsh (Cabinet)</div>
+        <div class="tag">Amanda De Ryk (Cabinet)</div>
+        <div class="tag">Will Cooper (Cabinet)</div>
+        <div class="tag">Sakina Sheikh (Cabinet)</div>
+        <div class="tag">Edison Huynh (Cabinet)</div>
+        <div class="tag">Rosie Parry (Councillor)</div>
+        <div class="tag">Andre Bourne (Councillor)</div>
+      </div>
+    </div>
+
+    <div id="foi" class="dossier-chapter">
+      <h2 class="chapter-title">IX. Actionable Scrutiny: FOI Targets</h2>
+      <div class="chapter-text">
+        <p>To move beyond self-reported data, the following Freedom of Information requests are recommended for public deployment. Each is grounded in a specific declared interest that directly intersects with a public decision-making role. These are not speculative — they are the logical consequence of the register data.</p>
+      </div>
+      <ol class="foi-list">
+        <li class="foi-item">
+          <div class="foi-num">01</div>
+          <div>
+            <h4>Mayor Dacres — IT Procurement vs. DBD Computer Consultancy Ltd</h4>
+            <p>Request all council payments and procurement contracts awarded to DBD Computer Consultancy Ltd. Cross-reference against Mayor Brenda Dacres's declared directorship to identify any IT procurement overlaps where the Mayor held a financial interest.</p>
+          </div>
+        </li>
+        <li class="foi-item">
+          <div class="foi-num">02</div>
+          <div>
+            <h4>Peter Bernards — Security Tenders vs. Private Security Directorships</h4>
+            <p>Request all contracts awarded to Diplomats Security Contract Ltd or Ashton Kingsley Ltd. Cross-reference against Planning Chair Peter Bernards's directorships in those firms to identify any security tender overlaps where the Planning Chair held a direct commercial interest.</p>
+          </div>
+        </li>
+        <li class="foi-item">
+          <div class="foi-num">03</div>
+          <div>
+            <h4>Grant Pipelines — Paschoud Family &amp; Johnston-Franklin Network</h4>
+            <p>Request a five-year breakdown of all funding, grants, and service level agreements issued to London Youth Events and Catbytes CIC. Scrutinise the grant pipelines connected to Liz Johnston-Franklin's son and the Paschoud family's combined eight declared organisational interests.</p>
+          </div>
+        </li>
+        <li class="foi-item">
+          <div class="foi-num">04</div>
+          <div>
+            <h4>Walsh &amp; Muldoon — Recusals on Developer Planning Projects</h4>
+            <p>Request all committee minutes and internal communications showing formal recusals (or the absence thereof) by James-J Walsh and John Muldoon on planning projects involving Bouygues UK or clients of Thorncliffe Communications. An absence of recusal records is itself a finding.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="dossier-chapter" style="border-bottom:none;">
+      <h2 class="chapter-title" style="font-size:clamp(1.6rem,3.3vw,2.3rem);">Conclusion: The Two-Tier Borough</h2>
+      <div class="chapter-text">
         <p>The data proves that Lewisham Council is no longer an independent arbiter of the public good. It functions as a facilitator for private equity, a payroll extension for trade unions and political parties, and an access-point for financial lobbyists.</p>
-        <p>The resulting policies have created a two-tier borough. In the centre, public land is handed to developers to build unaffordable luxury high-rises that yield 6% social rent. On the periphery, working-class residents are abandoned to navigate mould-infested social housing, maximum tax hikes, and £30 million in cuts to critical community services.</p>
+        <p>The resulting policies have created a two-tier borough. In the centre, public land is handed to developers to build unaffordable luxury high-rises yielding 6% social rent. On the periphery, working-class residents navigate mould-infested social housing, maximum Council Tax hikes, and £30 million in cuts to critical community services.</p>
         <p>This is the true cost of systematic institutional capture. It is time for relentless, uncompromising public scrutiny.</p>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- ═══════════════════════════════════════════
-     MANIFESTO BANNER
-═══════════════════════════════════════════ -->
-<div id="manifesto" class="page-wrapper">
-  <div class="section-banner" style="background:var(--ink); color:var(--newsprint); border-left:6px solid var(--accent-gold);">
-    <div class="section-number" style="color:var(--accent-gold);">Part II — The Response</div>
+  </div></div><div id="manifesto" class="page-wrapper">
+  <div class="section-banner" style="background:var(--ink); color:var(--newsprint); border-left:6px solid var(--gold);">
+    <div class="section-number" style="color:var(--gold);">Part II — The Response</div>
     <h2 style="color:var(--newsprint);">The Civic<br>Mandate</h2>
-    <p class="deck" style="color:#999;">A Manifesto for Democratic Reclamation</p>
+    <p class="deck" style="color:#888;">A Manifesto for Democratic Reclamation</p>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════
-     MANIFESTO BODY
-═══════════════════════════════════════════ -->
 <div class="manifesto-body">
   <div class="page-wrapper" style="padding-top:3rem; padding-bottom:3rem;">
-
     <div class="manifesto-preamble">
-      <strong>Preamble.</strong> Local government exists to serve the community, protect public assets, and provide a safety net for the vulnerable. When the mechanisms of local democracy are captured by national party machinery, corporate developers, and private finance, the public interest is lost. We reject the normalisation of institutional capture, the "trickle-down" exploitation of our public land, and the silencing of local dissent.
+      <strong>Preamble.</strong> Local government exists to serve the community, protect public assets, and provide a safety net for the vulnerable. When the mechanisms of local democracy are captured by national party machinery, corporate developers, and private finance, the public interest is lost. We reject the normalisation of institutional capture, the "trickle-down" exploitation of our public land, and the silencing of local dissent. To reclaim our local democracy, we commit to the following core principles.
     </div>
 
-    <!-- PRINCIPLE I -->
     <div class="principle">
       <div class="principle-num">I</div>
       <div class="principle-content">
         <h3>Independence Over Party Loyalty</h3>
-        <p>Local issues require local solutions, not national party dogma. We reject the use of the "Party Whip" in local council chambers, which stifles independent thought and forces representatives to vote against the interests of their own constituents. We support the election of independent, unwhipped representatives who answer only to the community, and we advocate for a shift to proportional representation to permanently end the "one-party state."</p>
+        <p>Local issues require local solutions, not national party dogma. We reject the use of the "Party Whip" in local council chambers, which stifles independent thought and forces representatives to vote against the interests of their own constituents. We support the election of independent, unwhipped representatives who answer only to the community, and advocate for a shift to proportional representation to permanently end the one-party state.</p>
       </div>
     </div>
 
-    <!-- PRINCIPLE II -->
     <div class="principle">
       <div class="principle-num">II</div>
       <div class="principle-content">
         <h3>Community Wealth Over Corporate Extraction</h3>
-        <p>Public land and public money must serve the public good. We reject economic models that hand our town centres to private equity while cutting front-line services. We advocate for Community Wealth Building: demanding that local institutions use their procurement budgets to support local businesses, worker co-operatives, and living-wage employers, ensuring wealth circulates within our community rather than leaking to corporate shareholders.</p>
+        <p>Public land and public money must serve the public good. We reject economic models that hand our town centres to private equity while cutting front-line services. We advocate for Community Wealth Building: demanding that local institutions use their procurement budgets to support local businesses, worker co-operatives, and living-wage employers — ensuring wealth circulates within our community rather than leaking to corporate shareholders.</p>
       </div>
     </div>
 
-    <!-- PRINCIPLE III -->
     <div class="principle">
       <div class="principle-num">III</div>
       <div class="principle-content">
         <h3>Distributed Power Over Executive Control</h3>
-        <p>The concentration of power in the hands of a single Mayor or a tiny Cabinet breeds complacency and allows corporate lobbying to thrive in the shadows. We demand the dismantling of the "Strong Leader" model in favour of a modern Committee System, where decision-making is shared, transparent, and requires cross-party consensus. Furthermore, for decisions that permanently alter our borough, we demand the use of Citizens' Assemblies to put power directly into the hands of informed residents.</p>
+        <p>The concentration of power in a single Mayor or a tiny Cabinet breeds complacency and allows corporate lobbying to thrive in the shadows. We demand the dismantling of the "Strong Leader" model in favour of a modern Committee System where decision-making is shared, transparent, and requires cross-party consensus. For decisions that permanently alter our borough, we demand Citizens' Assemblies to put power directly into the hands of informed residents.</p>
       </div>
     </div>
 
-    <!-- PRINCIPLE IV -->
     <div class="principle">
       <div class="principle-num">IV</div>
       <div class="principle-content">
         <h3>Relentless Scrutiny Over Blind Trust</h3>
-        <p>Transparency is not a request; it is a requirement. When auditors hold financial interests in the bodies they audit, the system has failed. We commit to the practice of open-source scrutiny: utilising Freedom of Information requests, scrutinising public registers, and exercising our legal right to inspect and object to local council accounts. We will not accept bureaucratic jargon as an excuse for financial conflicts of interest.</p>
+        <p>Transparency is not a request; it is a requirement. When auditors hold financial interests in the bodies they audit, the system has failed. We commit to open-source scrutiny: utilising Freedom of Information requests, scrutinising public registers, and exercising our legal right to inspect and object to local council accounts. The four FOI targets in this dossier are a starting point — not an endpoint. We will not accept bureaucratic jargon as an excuse for financial conflicts of interest.</p>
       </div>
     </div>
 
-    <!-- PRINCIPLE V -->
     <div class="principle">
       <div class="principle-num">V</div>
       <div class="principle-content">
@@ -845,28 +677,22 @@
       </div>
     </div>
 
-  </div><!-- end page-wrapper -->
-</div><!-- end manifesto-body -->
+  </div>
+</div>
 
-<!-- ═══════════════════════════════════════════
-     THE PLEDGE
-═══════════════════════════════════════════ -->
 <div id="pledge" class="page-wrapper">
   <div class="pledge-section">
     <h2>The Pledge</h2>
     <p>We will no longer accept the managed decline of our public services masked by the shiny veneer of corporate real estate.</p>
-    <p>We commit to voting, organising, and investigating with one singular goal: to ensure our local government works in partnership with the people it represents, not the institutions that seek to profit from us.</p>
-    <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:1.3rem; opacity:1; margin-top:1.5rem;">This is the Civic Mandate.</p>
+    <p>We commit to voting, organising, and investigating with one singular goal: to ensure our local government works in partnership with the people it represents — not the institutions that seek to profit from us.</p>
+    <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:1.35rem; margin-top:1.5rem;">This is the Civic Mandate.</p>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════
-     PDF DOWNLOAD
-═══════════════════════════════════════════ -->
 <div class="download-bar">
-  <p>Save or share this report &amp; manifesto</p>
+  <p>Save, print, or share this full report and manifesto</p>
   <button class="btn-pdf" onclick="printDocument()">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
       <polyline points="7 10 12 15 17 10"/>
       <line x1="12" y1="15" x2="12" y2="3"/>
@@ -875,40 +701,41 @@
   </button>
 </div>
 
-<!-- ═══════════════════════════════════════════
-     FOOTER
-═══════════════════════════════════════════ -->
+<div class="disclaimer">
+  This report is based solely on the self-reported Register of Interests provided by Councillors and public regulatory data (2026).<br>
+  Inclusion in this report does not imply illegal wrongdoing; it highlights areas where declared interests intersect with public responsibilities.<br>
+  Generated independently based on qualitative analysis of the Lewisham Council Register of Interests and public regulatory findings.
+</div>
+
 <footer>
-  <p>The Civic Mandate · Independent Democratic Scrutiny · Lewisham · 2026</p>
-  <p style="margin-top:0.5rem; opacity:0.5;">Generated independently based on qualitative analysis of the Lewisham Council Register of Interests and public regulatory findings (2026). This report contains analysis and opinion derived from publicly available information.</p>
+  The Civic Mandate · Independent Democratic Scrutiny · Lewisham · 2026
 </footer>
 
 <script>
   function printDocument() {
-    // Add a title for the PDF
     const originalTitle = document.title;
-    document.title = "The Civic Mandate — Lewisham Democratic Reclamation 2026";
+    document.title = 'The Civic Mandate — Lewisham Dossier 2026';
     window.print();
     document.title = originalTitle;
   }
 
-  // Intersection Observer for scroll-based reveals
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
       }
     });
-  }, { threshold: 0.08 });
+  }, { threshold: 0.06 });
 
-  document.querySelectorAll('.receipt-card, .principle, .stat-box, .dossier-chapter').forEach(el => {
+  document.querySelectorAll(
+    '.receipt-card, .principle, .stat-box, .outlier-list li, .foi-item, .tag'
+  ).forEach(el => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+    el.style.transform = 'translateY(18px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     observer.observe(el);
   });
 </script>
-
 </body>
 </html>
